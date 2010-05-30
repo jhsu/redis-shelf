@@ -1,0 +1,25 @@
+# Redis Shelf
+
+A simple rack app to browse redis
+
+## Instructions
+
+First install gems
+
+	# required:
+    gem install rack redis
+
+	# recommended:
+    gem install thin shotgun
+	
+
+Start the server
+
+    rackup
+
+Keys are browsed using "localhost:3000/this/is/a/key", which resolves to the redis key "this:is:a:key"
+
+
+## TODO:
+
+* nicer interface (html)
