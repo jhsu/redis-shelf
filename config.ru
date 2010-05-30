@@ -2,9 +2,9 @@
 require 'rack'
 
 $:.unshift(Dir.pwd)
-require 'app'
+require 'redis_shelf'
 
 
 use Rack::Static, :urls => ["/favicon"]
-app = Fetcher.new
+app = RedisShelf.new
 run app

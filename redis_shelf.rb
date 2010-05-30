@@ -12,7 +12,7 @@ def redis_to_code(response)
   end
 end
 
-class Fetcher
+class RedisShelf
   def call(env)
 	header = {"Content-Type" => "text/plain"}
     key = env["REQUEST_URI"]
