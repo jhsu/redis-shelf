@@ -1,4 +1,4 @@
-#\ -s thin -p 3000
+#\ -p 3000
 require 'rack'
 
 $:.unshift(Dir.pwd)
