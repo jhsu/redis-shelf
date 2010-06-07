@@ -18,26 +18,26 @@ class RedisHandler
 
   def self.parse(key)
     if key.empty?
-	  ""
-	else
+      ""
+    else
       key.gsub(/^\/|\/$/,'').gsub(/[\s]+/,'').gsub('/',':')
     end
   end
 
   def self.fetch(key)
     key = parse(key)
-	if !key.empty?
-	  case self.connection.type(key)
-	  when "string" || "none"
-	    connection.get(key)
-	  when "list"
-	    connection.lrange(key, 0, -1).inject("") {|response, item| response.empty? ? "" : response << "\n"; response << item; response }
-	  else
+    if !key.empty?
+      case self.connection.type(key)
+      when "string" || "none"
+        connection.get(key) || ""
+      when "list"
+        connection.lrange(key, 0, -1)
+      else
         ""
-	  end
-	else
+      end
+    else
       ""
-	end
+    end
   end
 
   def self.http_response(key)
