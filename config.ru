@@ -1,5 +1,7 @@
-#\ -p 3000
-require 'rack'
+#\ -s thin -p 3000
+
+require 'bundler'
+Bundler.require(:default)
 
 $:.unshift(Dir.pwd)
 require 'redis_shelf'
