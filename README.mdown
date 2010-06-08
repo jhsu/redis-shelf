@@ -6,16 +6,12 @@ A simple rack app to browse redis
 
 First install gems
 
-	# required:
-    gem install rack redis
-
-	# recommended:
-    gem install thin shotgun
-	
+  # required:
+  bundle install
 
 Start the server
 
-    rackup
+    rackup -s thin
 
 Keys are browsed using "localhost:3000/this/is/a/key", which resolves to the redis key "this:is:a:key"
 
