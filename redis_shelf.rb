@@ -12,7 +12,7 @@ end
 
 def history(key=nil)
   if key
-    RedisHandler.connection.lpush("history", key)
+    RedisHandler.connection.lpush("history", key) unless key.empty?
   else
     RedisHandler.connection.lrange("history",0,10)
   end
