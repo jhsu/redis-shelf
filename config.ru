@@ -8,5 +8,6 @@ require 'redis_shelf'
 
 
 use Rack::Static, :urls => ["/favicon"]
+use Rack::Static, :urls => ["/css"], :root => "public"
 app = RedisShelf.new
 run app

@@ -1,0 +1,11 @@
+#history {
+  overflow: auto;
+}
+
+#history li {
+  float: left;
+}
+
+#history li a {
+  display: block;
+}

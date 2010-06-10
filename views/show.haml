@@ -1,15 +1,20 @@
-%h2= key
+%html
+  %head
+    %link{:href => "/css/style.css", :rel => "stylesheet", :media => "screen"}
 
-%ul#history
-  - history.each do |key|
-    %li
-      %a{:href => "./#{key}"}= key
+  %body
+    %h2= key
+
+    %ul#history
+      - history.each do |key|
+        %li
+          %a{:href => "./#{key}"}= key
 
 
-#values
-  - if values.is_a?(String)
-    = values
-  - else
-    %ul
-      - values.each do |value| 
-        %li.value= value
+    #values
+      - if values.is_a?(String)
+        = values
+      - else
+        %ul
+          - values.each do |value| 
+            %li.value= value

@@ -1,0 +1,14 @@
+#history {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+
+#history li {
+  float: left;
+}
+
+#history li a {
+  display: block;
+  padding: 4px 8px;
+}
