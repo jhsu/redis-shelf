@@ -9,7 +9,7 @@ module Rack
 			key = Connection.parse(key)
 			history(key)
 			values, code = Connection.http_response(key)
-			content = render("show", :values => values, :key => key)
+			content = render("show", :values => values, :key => key, :redis => Connection.connection)
 
 			[code, header, [content]]
 		end

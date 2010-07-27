@@ -1,21 +1,15 @@
 module RedisShelf
 	class Connection
 		def self.connection
-			# Thread.current[:redis_connection] ||= new_connection
-			new_connection
-		end
-
-		def self.new_connection
 			::Redis.new(self.configuration)
 		end
 
 		def self.configuration(conf=nil)
-			if conf
-				@configuration = conf
+			@configuration = {}
+			YAML.load(File.open(CONFIG_FILE)).each do |key, value|
+				@configuration[key.to_sym] = value
 			end
-			@configuration ||= begin
-				YAML.load(File.open("config/redis.yml"))
-			end
+			@configuration
 		end
 
 		def self.parse(key)

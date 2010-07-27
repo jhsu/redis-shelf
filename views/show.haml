@@ -18,3 +18,6 @@
         %ul
           - values.each do |value| 
             %li.value= value
+
+    %textarea#config
+      = redis.inspect.to_s

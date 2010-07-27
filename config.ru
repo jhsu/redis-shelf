@@ -1,7 +1,5 @@
 #\ -s thin -p 9292
 
-require 'bundler'
-Bundler.require(:default)
 
 require './lib/redis_shelf'
 
