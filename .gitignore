@@ -1,3 +1,4 @@
 .rvmrc
 .bundle
 config/redis.yml
+*.gem
