@@ -1,13 +1,11 @@
-#\ -s thin -p 3000
+#\ -s thin -p 9292
 
 require 'bundler'
 Bundler.require(:default)
 
-$:.unshift(Dir.pwd)
-require 'redis_shelf'
-
+require './lib/redis_shelf'
 
 use Rack::Static, :urls => ["/favicon"]
 use Rack::Static, :urls => ["/css"], :root => "public"
-app = RedisShelf.new
+app = Rack::RedisShelf.new
 run app
