@@ -19,5 +19,5 @@
           - values.each do |value| 
             %li.value= value
 
-    %textarea#config
-      = redis.inspect.to_s
+    #config
+      = "#{redis.client.host}:#{redis.client.port} db: #{redis.client.db}"
