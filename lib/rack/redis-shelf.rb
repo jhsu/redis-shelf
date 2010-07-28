@@ -1,21 +1,20 @@
 require 'redis'
 
 module Rack
-	module RedisShelf
-		extend self
+	class RedisShelf
 		F = ::File
 
-		def self.connection
-			::Redis.new(:host => self.config['host'], :port => self.config['port'], :db => self.config['db'])
+		attr_accessor :config
+
+		def initialize(conf={})
+		  self.config = {:host => "localhost", :port => 6379, :db => 0}.merge(conf)
 		end
 
-		def self.config
-			YAML.load(F.open(
-				F.expand_path(F.join(F.dirname(__FILE__), "..", "config", "redis.yml")))
-			)
+		def connection
+			::Redis.new(self.config)
 		end
 
-		def self.parse(key)
+		def parse(key)
 			if key.empty?
 				""
 			else
@@ -23,7 +22,7 @@ module Rack
 			end
 		end
 
-		def self.fetch(key)
+		def fetch(key)
 			key = parse(key)
 			if !key.empty?
 				case self.connection.type(key)
@@ -39,7 +38,7 @@ module Rack
 			end
 		end
 
-		def self.http_response(key)
+		def http_response(key)
 			value = fetch(key)
 			code = value ? 200 : 404
 			[value, code]

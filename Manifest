@@ -5,8 +5,9 @@ README.mdown
 Rakefile
 config.ru
 config/redis.sample.yml
-lib/redis_shelf.rb
-lib/redis_shelf/server.rb
+lib/rack/redis-shelf.rb
+lib/redis-shelf/server.rb
 public/css/style.css
 public/style.css
+redis-shelf.gemspec
 views/show.haml

@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.date = %q{2010-07-28}
   s.description = %q{Redis key browser}
   s.email = %q{jhsu@josephhsu.com}
-  s.extra_rdoc_files = ["LICENSE", "README.mdown", "lib/rack/connection.rb", "lib/rack/redis_shelf.rb"]
-  s.files = ["Gemfile", "LICENSE", "Manifest", "README.mdown", "Rakefile", "config.ru", "config/redis.sample.yml", "lib/rack/connection.rb", "lib/rack/redis_shelf.rb", "public/css/style.css", "public/style.css", "views/show.haml", "redis-shelf.gemspec"]
+  s.extra_rdoc_files = ["LICENSE", "README.mdown", "lib/rack/redis-shelf.rb", "lib/redis-shelf/server.rb"]
+  s.files = ["Gemfile", "LICENSE", "Manifest", "README.mdown", "Rakefile", "config.ru", "config/redis.sample.yml", "lib/rack/redis-shelf.rb", "lib/redis-shelf/server.rb", "public/css/style.css", "public/style.css", "redis-shelf.gemspec", "views/show.haml"]
   s.homepage = %q{http://github.com/jhsu/redis-shelf}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Redis-shelf", "--main", "README.mdown"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{redis-shelf}
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.3.5}
   s.signing_key = %q{/Users/jhsu/.certs/gem-private_key.pem}
   s.summary = %q{Redis key browser}
 
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
     else
     end
   else
