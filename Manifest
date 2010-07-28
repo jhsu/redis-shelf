@@ -6,11 +6,7 @@ Rakefile
 config.ru
 config/redis.sample.yml
 lib/redis_shelf.rb
-lib/redis_shelf/helpers.rb
-lib/redis_shelf/redis_connection.rb
-lib/redis_shelf/redis_shelf.rb
-lib/redis_shelf/version.rb
+lib/redis_shelf/server.rb
 public/css/style.css
 public/style.css
-redis-shelf.gemspec
 views/show.haml
