@@ -1,4 +1,5 @@
 require 'redis'
+require 'yaml'
 
 module Rack
   class RedisShelf
@@ -7,11 +8,18 @@ module Rack
     attr_accessor :config
 
     def initialize(conf={})
-      self.config = {'host' => "localhost", 'port' => 6379, 'db' => 1}.merge(conf)
+      redis_config = {'host' => 'localhost', 'port' => 6379, 'db' => 0}.merge(conf)
+      self.config = redis_config
     end
 
     def connection
+      @connection ||= ::Redis.new(self.config)
       Thread.current[:redis] ||= ::Redis.new(self.config)
+    end
+
+    def available?
+      result = connection.get("")
+      result.nil? || result ? true : false
     end
 
     def parse(key)
